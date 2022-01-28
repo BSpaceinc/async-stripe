@@ -1,3 +1,7 @@
+# Fork Changes
+* src/resources/generated/payment_intent.rs: 141: remove `payment_method_options` (can't deserialize)
+* src/resources/generated/subscription_item.rs: rename `SubscriptionPaymentBehavior` to `SubscriptionItemPaymentBehavior`
+
 # async-stripe
 
 ![CI](https://github.com/arlyon/stripe-rs/workflows/CI/badge.svg)

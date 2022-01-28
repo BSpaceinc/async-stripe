@@ -147,7 +147,7 @@ pub struct CreateSubscriptionItem<'a> {
     /// This was the default behavior for API versions prior to 2019-03-14.
     /// See the [changelog](https://stripe.com/docs/upgrades#2019-03-14) to learn more.
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub payment_behavior: Option<SubscriptionPaymentBehavior>,
+    pub payment_behavior: Option<SubscriptionItemPaymentBehavior>,
 
     /// The ID of the price object.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -285,7 +285,7 @@ pub struct UpdateSubscriptionItem<'a> {
     /// This was the default behavior for API versions prior to 2019-03-14.
     /// See the [changelog](https://stripe.com/docs/upgrades#2019-03-14) to learn more.
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub payment_behavior: Option<SubscriptionPaymentBehavior>,
+    pub payment_behavior: Option<SubscriptionItemPaymentBehavior>,
 
     /// The ID of the price object.
     ///
@@ -434,31 +434,31 @@ impl std::fmt::Display for SubscriptionItemPriceDataTaxBehavior {
 /// An enum representing the possible values of an `CreateSubscriptionItem`'s `payment_behavior` field.
 #[derive(Copy, Clone, Debug, Deserialize, Serialize, Eq, PartialEq)]
 #[serde(rename_all = "snake_case")]
-pub enum SubscriptionPaymentBehavior {
+pub enum SubscriptionItemPaymentBehavior {
     AllowIncomplete,
     DefaultIncomplete,
     ErrorIfIncomplete,
     PendingIfIncomplete,
 }
 
-impl SubscriptionPaymentBehavior {
+impl SubscriptionItemPaymentBehavior {
     pub fn as_str(self) -> &'static str {
         match self {
-            SubscriptionPaymentBehavior::AllowIncomplete => "allow_incomplete",
-            SubscriptionPaymentBehavior::DefaultIncomplete => "default_incomplete",
-            SubscriptionPaymentBehavior::ErrorIfIncomplete => "error_if_incomplete",
-            SubscriptionPaymentBehavior::PendingIfIncomplete => "pending_if_incomplete",
+            SubscriptionItemPaymentBehavior::AllowIncomplete => "allow_incomplete",
+            SubscriptionItemPaymentBehavior::DefaultIncomplete => "default_incomplete",
+            SubscriptionItemPaymentBehavior::ErrorIfIncomplete => "error_if_incomplete",
+            SubscriptionItemPaymentBehavior::PendingIfIncomplete => "pending_if_incomplete",
         }
     }
 }
 
-impl AsRef<str> for SubscriptionPaymentBehavior {
+impl AsRef<str> for SubscriptionItemPaymentBehavior {
     fn as_ref(&self) -> &str {
         self.as_str()
     }
 }
 
-impl std::fmt::Display for SubscriptionPaymentBehavior {
+impl std::fmt::Display for SubscriptionItemPaymentBehavior {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         self.as_str().fmt(f)
     }

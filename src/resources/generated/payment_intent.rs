@@ -138,8 +138,8 @@ pub struct PaymentIntent {
     pub payment_method: Option<Box<Expandable<PaymentMethod>>>,
 
     /// Payment-method-specific configuration for this PaymentIntent.
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub payment_method_options: Option<Box<PaymentIntentPaymentMethodOptions>>,
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    // pub payment_method_options: Option<Box<PaymentIntentPaymentMethodOptions>>,
 
     /// The list of payment method types (e.g.
     ///
